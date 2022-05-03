@@ -1,4 +1,4 @@
-function algorithmLunaValidate(value) {
+export default function algorithmLunaValidate(value) {
   let sumItems = 0;
   let resultCheckSum = null;
   let data = value.split('');
@@ -16,5 +16,5 @@ function algorithmLunaValidate(value) {
   return resultCheckSum === controlCheckSum;
 }
 
-const res = algorithmLunaValidate(test);
-console.log(res);
+// const res = algorithmLunaValidate(test);
+// console.log(res);

@@ -9,7 +9,7 @@ body {
 	font-size: 16px;
 	font-weight: 400;
 	color: rgb(0, 0, 0);
-	/* background: rgb(255, 255, 255); */
+	background-color: white;
 	background-image: url('../img/bg1.jpg');
 	background-repeat: no-repeat;
 	background-position: center;
@@ -33,44 +33,41 @@ body {
 	padding: 14px;
 	user-select: none;
 	box-shadow: inset 0px 0px 10px 0px hsl(0deg 0% 0% / 40%);
-	/* background: -webkit-linear-gradient(45deg, rgb(150, 150, 150) 14%, rgb(208, 208, 208));
-	background: -moz-linear-gradient(45deg, rgb(150, 150, 150) 14%, rgb(208, 208, 208));
-	background: linear-gradient(45deg, rgb(150, 150, 150) 14%, rgb(208, 208, 208)); */
 }
 
-.visa {
+.visa-color {
 	background: -webkit-linear-gradient(45deg, rgb(151, 185, 217), rgb(87, 125, 217), rgb(0, 45, 96));
 	background: -moz-linear-gradient(45deg, rgb(151, 185, 217), rgb(87, 125, 217), rgb(0, 45, 96));
 	background: linear-gradient(45deg, rgb(151, 185, 217), rgb(87, 125, 217), rgb(0, 45, 96));
 }
 
-.master_card {
+.master_card-color {
 	background: -webkit-linear-gradient(225deg, rgb(109, 109, 109), rgb(255, 255, 255), rgb(150, 150, 150));
 	background: -moz-linear-gradient(225deg, rgb(109, 109, 109), rgb(255, 255, 255), rgb(150, 150, 150));
 	background: linear-gradient(225deg, rgb(109, 109, 109), rgb(255, 255, 255), rgb(150, 150, 150));
 }
 
-.mir {
+.mir-color {
 	background: -webkit-linear-gradient(0deg, rgb(0, 142, 29) 8%, rgb(217, 217, 217) 58%, rgb(255, 255, 255));
 	background: -moz-linear-gradient(0deg, rgb(0, 142, 29) 8%, rgb(217, 217, 217) 58%, rgb(255, 255, 255));
 	background: linear-gradient(0deg, rgb(0, 142, 29) 8%, rgb(217, 217, 217) 58%, rgb(255, 255, 255));
 }
 
-.amexp {
+.amexp-color {
 	background: -webkit-linear-gradient(225deg, rgb(0, 111, 208) 53%, rgb(255, 255, 255) 47%, rgb(0, 111, 208));
 	background: -moz-linear-gradient(225deg, rgb(0, 111, 208) 53%, rgb(255, 255, 255) 47%, rgb(0, 111, 208));
 	background: linear-gradient(225deg, rgb(0, 111, 208) 53%, rgb(255, 255, 255) 47%, rgb(0, 111, 208));
 }
 
-.union_pay {
+.union_pay-color {
 	background: linear-gradient(45deg, rgb(226, 60, 57) 65%, rgb(0, 123, 132), rgb(1, 68, 124) 51%);
 }
 
-.diners {
+.diners-color {
 	background: linear-gradient(180deg, rgb(255, 255, 255), rgb(0, 176, 255) 100%, rgb(255, 255, 255) 8%);
 }
 
-.discover {
+.discover-color {
 	background: -webkit-linear-gradient(225deg, rgb(255, 255, 255) 22%, rgb(255, 90, 0) 19%);
 	background: -moz-linear-gradient(225deg, rgb(255, 255, 255) 22%, rgb(255, 90, 0) 19%);
 	background: linear-gradient(225deg, rgb(255, 255, 255) 22%, rgb(255, 90, 0) 19%);
@@ -92,23 +89,43 @@ body {
 	background-size: cover;
 }
 
-/* .card__chip-img {
-	width: 100%;
-} */
-
 .card__vendor {
 	width:140px;
 	height: 52px;
 	background-color: transparent;
-	background-image: url('../img/logo/unionPay_logo.svg');
 	background-repeat: no-repeat;
 	background-position: right;
 	background-size: contain;
 }
 
-/* .card__input {
+.visa {
+	background-image: url('../img/logo/visa_logo_white.svg');
+}
 
-} */
+.mastercard {
+	background-image: url('../img/logo/mastercard_logo.svg');
+}
+
+.mir {
+	background-image: url('../img/logo/mir_logo.svg');
+}
+
+.amexp {
+	background-image: url('../img/logo/american_Express_logo.svg');
+}
+
+.unionpay {
+	background-image: url('../img/logo/unionPay_logo.svg');
+}
+
+.diners {
+	background-image: url('../img/logo/diners_logo.svg');
+}
+
+.discover {
+	background-image: url('../img/logo/dscover_logo.svg');
+}
+
 
 .card__input-title {
 	display: inline-block;
@@ -137,10 +154,4 @@ body {
 	align-items: center;
 	padding-left: 16px;
 	padding-right: 16px;
-}
-
-.card__info span {
-	/* text-shadow:
-    -1px -1px rgb(79, 79, 79),
-    0 1px 0 rgb(79, 79, 79); */
 }
