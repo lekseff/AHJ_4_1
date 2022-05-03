@@ -4,9 +4,30 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500&display=swap" rel="stylesheet">
   <title>Card Validator</title>
 </head>
 <body>
-  
+  <div class="container">
+    <div class="card union_pay">
+      <div class="card__logo">
+        <div class="card__chip">
+          <!-- <img class="card__chip-img" src="./img/chip.png" alt="chip"> -->
+        </div>
+        <div class="card__vendor"></div>
+      </div>
+      <div class="card__input">
+        <label style="display:none;" for="number">Card Number</label>
+        <span class="card__input-title">Card Number</span>
+        <input class="card__input-field" type="text" name="number" id="number" maxlength="20" placeholder="0000 0000 0000 0000" autocomplete="off"> 
+      </div>
+      <div class="card__info">
+        <span>FULL NAME</span>
+        <span>MM/YY</span>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
