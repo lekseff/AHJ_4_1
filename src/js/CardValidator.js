@@ -28,11 +28,11 @@ export default class CardValidator {
   }
 
   static get cardSelector() {
-    return 'card';
+    return '.card';
   }
 
   static get cardVendorSelector() {
-    return 'card__vendor';
+    return '.card__vendor';
   }
 
   static get inputSelector() {
@@ -46,10 +46,12 @@ export default class CardValidator {
   }
 
   inputHandler(event) {
-    const number = event.target.value;
+    const number = event.target.value.trim();
     if (/^\d+$/g.test(number)) {
-      this.identifyCardVendor(number);
+      const type = this.identifyCardVendor(number);
+      this.showCardType(type);
     } else {
+      this.showCardType('unknown');
       this.input.value = this.input.value.replace(/\D/g, '');
       console.warn('Не верный символ');
     }
@@ -59,39 +61,52 @@ export default class CardValidator {
     console.log(number);
 
     if (/^4\d{0,15}/.test(number)) {
-      console.log('visa');
+      return 'visa';
     }
 
     if (/^(5[1-5]\d{0,2}|22[2-9]\d{0,1}|2[3-7]\d{0,2})\d{0,12}/.test(number)) {
-      console.log('mastercard');
+      return 'mastercard';
     }
 
     if (/^3[47][0-9]{13}$/.test(number)) {
-      console.log('americanExpress');
+      return 'amexp';
     }
 
     if (/^(?:2131|1800|35\d{3})\d{11}$/.test(number)) {
-      console.log('jcb');
+      return 'jcb';
     }
 
     if (/^(?:6011|65\d{0,2}|64[4-9]\d?)\d{0,12}/.test(number)) {
-      console.log('discover');
+      return 'discover';
     }
 
     if (/^3(?:0[0-5]|[68][0-9])[0-9]{11}$/.test(number)) {
-      console.log('dinersClub');
+      return 'diners';
     }
 
     if (/^(?:5[0678]\d{0,2}|6304|67\d{0,2})\d{0,12}/.test(number)) {
-      console.log('maestro');
+      return 'maestro';
     }
 
     if (/^62\d{0,14}/.test(number)) {
-      console.log('unionpay');
+      return 'unionpay';
     }
 
     if (/^220[0-4]\d{0,12}/.test(number)) {
-      console.log('mir');
+      return 'mir';
+    }
+
+    return 'unknown';
+  }
+
+  showCardType(type) {
+    console.log(type);
+    this.parentEl.querySelector(this.constructor.cardSelector).className = 'card';
+    this.parentEl.querySelector(this.constructor.cardVendorSelector).className = 'card__vendor';
+
+    if (type !== 'unknown') {
+      this.parentEl.querySelector(this.constructor.cardSelector).classList.add(`${type}-color`);
+      this.parentEl.querySelector(this.constructor.cardVendorSelector).classList.add(type);
     }
   }
 }
