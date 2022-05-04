@@ -40,6 +40,29 @@ export default class CardValidator {
   }
 
   /**
+   * Проверка корректности номера по алгоритму Луна
+   * @param {string} number - номер карты
+   * @returns - true или false
+   */
+  static algorithmLunaValidate(number) {
+    let sumItems = 0;
+    let resultCheckSum = null;
+    let data = number.split('');
+    const controlCheckSum = Number.parseInt(data.pop(), 10); // Получаем последний элемент и удаляем
+    data = data.reverse()
+      .map((item, idx) => {
+        let num = Number.parseInt(item, 10);
+        if (idx % 2 === 0) num *= 2;
+        if (num >= 10) num = 1 + (num % 10);
+        return num;
+      });
+
+    sumItems = data.reduce((acc, item) => acc + item, 0);
+    resultCheckSum = 10 - (sumItems % 10 || 10);
+    return resultCheckSum === controlCheckSum;
+  }
+
+  /**
    * Добавляет разметки и обработчики в родительский элемент
    */
   bindToDOM() {
@@ -65,9 +88,12 @@ export default class CardValidator {
     this.validateNumber(number);
   }
 
+  /**
+   * Получаем тип карты
+   * @param {string} number - номер карты
+   * @returns - тип карты
+   */
   identifyCardVendor(number) {
-    // console.log(number);
-
     if (/^4\d{0,15}/.test(number)) {
       return 'visa';
     }
@@ -107,6 +133,10 @@ export default class CardValidator {
     return 'unknown';
   }
 
+  /**
+   * Отображение типа карты
+   * @param {string} type - тип карты
+   */
   showCardType(type) {
     this.parentEl.querySelector(this.constructor.cardSelector).className = 'card';
     this.parentEl.querySelector(this.constructor.cardVendorSelector).className = 'card__vendor';
@@ -117,6 +147,11 @@ export default class CardValidator {
     }
   }
 
+  /**
+   * Проверка валидности номера карты и отображение иконки
+   * @param {*} number - номер карты
+   * @returns -
+   */
   validateNumber(number) {
     if (number.length < 12) {
       this.parentEl.querySelector('.card__input').classList = 'card__input';
@@ -126,24 +161,10 @@ export default class CardValidator {
     this.showValidationIcon(isValid);
   }
 
-  static algorithmLunaValidate(number) {
-    let sumItems = 0;
-    let resultCheckSum = null;
-    let data = number.split('');
-    const controlCheckSum = Number.parseInt(data.pop(), 10); // Получаем последний элемент и удаляем
-    data = data.reverse()
-      .map((item, idx) => {
-        let num = Number.parseInt(item, 10);
-        if (idx % 2 === 0) num *= 2;
-        if (num >= 10) num = 1 + (num % 10);
-        return num;
-      });
-
-    sumItems = data.reduce((acc, item) => acc + item, 0);
-    resultCheckSum = 10 - (sumItems % 10 || 10);
-    return resultCheckSum === controlCheckSum;
-  }
-
+  /**
+   * Показывает инконку в зависимости от статуса проверки
+   * @param {boolean} status - trie или false
+   */
   showValidationIcon(status) {
     const cardInput = this.parentEl.querySelector('.card__input');
 

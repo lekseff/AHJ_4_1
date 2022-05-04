@@ -32,6 +32,9 @@ body {
 	width:420px;
 	height: 250px;
 	background-color: rgb(173, 173, 173);
+	background-image: url('../img/35.jpg');
+	background-position: center;
+	background-size: cover;
 	border-radius:12px;
 	padding: 14px;
 	user-select: none;
