@@ -162,7 +162,7 @@ export default class CardValidator {
   }
 
   /**
-   * Показывает инконку в зависимости от статуса проверки
+   * Показывает иконку в зависимости от статуса проверки
    * @param {boolean} status - trie или false
    */
   showValidationIcon(status) {
