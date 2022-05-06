@@ -1,3 +1,5 @@
+![example workflow](https://github.com/lekseff/AHJ_1/actions/workflows/ci_test.yml/badge.svg)
+![example workflow](https://github.com/lekseff/AHJ_1/actions/workflows/deploy.yml/badge.svg)
 
 
 Правила сдачи задания:
