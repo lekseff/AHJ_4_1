@@ -5,7 +5,7 @@
 ![example workflow](https://github.com/lekseff/AHJ_4_1/actions/workflows/deploy.yml/badge.svg)
 
 
-[GitHub Pages Card Validator](https://lekseff.github.io/Trello/)
+[GitHub Pages Card Validator](https://lekseff.github.io/AHJ_4_1/)
 
 ## Credit Card Validator
 
